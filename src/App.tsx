@@ -11,7 +11,7 @@ function App() {
   const fetchApi = async () => {
     try {
       const response = await axios.get(
-        "https://cors-anywhere.herokuapp.com/https://simplylegal.leaddocket.com/api/leads?status=7&page=1&itemsPerPage=500",
+        "https://simplylegal.leaddocket.com/api/leads?status=7&page=1&itemsPerPage=500",
         {
           headers: {
             accept: "application/json",
