@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import axios from "axios";
 // import axios from "axios";
 
 function App() {
@@ -9,26 +10,26 @@ function App() {
 
   const fetchApi = async () => {
     try {
-      // const response = await axios.get(
-      //   "https://cors-anywhere.herokuapp.com/https://simplylegal.leaddocket.com/api/leads?status=7&page=1&itemsPerPage=500",
-      //   {
-      //     headers: {
-      //       accept: "application/json",
-      //       api_key: "58e1c43e-4a1f-41c5-852b-1116a7a1f482",
-      //     },
-      //   }
-      // );
-      // console.log(response);
-      const response = await fetch(
-        "https://simplylegal.leaddocket.com/api/leads?status=7&page=1&itemsPerPage=500",
+      const response = await axios.get(
+        "https://cors-anywhere.herokuapp.com/https://simplylegal.leaddocket.com/api/leads?status=7&page=1&itemsPerPage=500",
         {
           headers: {
-            Action: "application/json",
+            accept: "application/json",
             api_key: "58e1c43e-4a1f-41c5-852b-1116a7a1f482",
           },
         }
       );
-      console.log(await response.json());
+      console.log(response);
+      // const response = await fetch(
+      //   "https://simplylegal.leaddocket.com/api/leads?status=7&page=1&itemsPerPage=500",
+      //   {
+      //     headers: {
+      //       Action: "application/json",
+      //       api_key: "58e1c43e-4a1f-41c5-852b-1116a7a1f482",
+      //     },
+      //   }
+      // );
+      // console.log(await response.json());
     } catch (error) {
       console.log("Error: ", error);
     }
