@@ -4,18 +4,21 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import axios from "axios";
 // import axios from "axios";
+const BASE_API_URL = import.meta.env.VITE_BASE_API_KEY;
 
 function App() {
+  console.log(BASE_API_URL);
+  
   const [count, setCount] = useState(0);
 
   const fetchApi = async () => {
     try {
       const response = await axios.get(
-        "https://simplylegal.leaddocket.com/api/leads?status=7&page=1&itemsPerPage=500",
+        "https://cors-anywhere.herokuapp.com/https://simplylegal.leaddocket.com/api/leads?status=7&page=1&itemsPerPage=500",
         {
           headers: {
             accept: "application/json",
-            api_key: "58e1c43e-4a1f-41c5-852b-1116a7a1f482",
+            api_key: BASE_API_URL,
           },
         }
       );
